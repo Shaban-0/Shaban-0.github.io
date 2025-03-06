@@ -1,0 +1,489 @@
+/*
+========================================
+Baratie Kitchen - styling.css
+========================================
+
+/* Global Reset and Box Sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Variables for Colors and Fonts (using the 60-30-10 Rule) */
+:root {
+  --color-primary: #f8f8f8;       /* Main background (60%) */
+  --color-secondary: #2c3e50;     /* Major sections & nav (30%) */
+  --color-accent: #DBB4A0;        /* Accents (10%) */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Lexend Deca', sans-serif;
+  --base-font-size: 18px;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  font-family: var(--font-primary);
+  font-size: var(--base-font-size);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Utility Container Class */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Banner Section */
+.banner-container .banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Global Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+
+/* Paragraphs and List Items */
+p,
+li {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Section-Specific Typography Overrides */
+/* Navigation Bar */
+.navbar a {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}
+
+/* About Us Section */
+#aboutUs h2 {
+  font-size: 2.2rem;
+}
+#aboutUs p {
+  font-size: 1.2rem;
+}
+
+/* Cuisine Origins Section */
+.homeSection2 h2 {
+  font-size: 2.2rem;
+}
+.cuisineOriginText h3 {
+  font-size: 1.8rem;
+}
+.cuisineOriginText p {
+  font-size: 1.2rem;
+}
+
+/* Signature Dishes Section */
+.homeSection3 h2 {
+  font-size: 2.2rem;
+}
+.signatureDishText h3 {
+  font-size: 1.8rem;
+}
+.signatureDish p {
+  font-size: 1.2rem;
+}
+.signatureDish blockquote {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 0.5rem 0;
+  color: var(--color-secondary);
+}
+
+/* Recipes Section */
+.recipes .recipe h2 {
+  font-size: 2.2rem;
+}
+.recipes .recipe p,
+.recipes .recipe li {
+  font-size: 1.2rem;
+}
+
+/* Private Lesson Section */
+#prvtLesson h2,
+#prvtLesson p,
+#prvtLesson label,
+#prvtLesson input,
+#prvtLesson select,
+#prvtLesson input[type="submit"] {
+  font-size: 1.2rem;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-secondary);
+  padding: 0.5rem 1rem;
+  height: 60px;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+  margin: 0 2vw; /* Used viewport width units for responsiveness */
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--color-accent);
+}
+
+/* Header Section */
+.main-header {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-secondary);
+  padding: 1rem 0rem;
+  min-height: 100px;
+  text-align: center;
+}
+
+.main-header .title h1,
+.main-header .title h2 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+/* Section Base Styles */
+section {
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+section h1,
+section h2 {
+  margin-bottom: 1rem;
+}
+
+section p {
+  text-align: left;
+}
+
+/* Box Styling for Cuisine Origins, Signature Dishes, and Recipe Cards */
+.cuisineOrigin,
+.signatureDish,
+.recipe {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 1.5rem;
+  min-height: 400px;
+}
+
+.cuisineOrigin:hover,
+.signatureDish:hover,
+.recipe:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Layout for Cuisine Origins & Signature Dishes using Grid Columns*/
+.cuisineOrigins,
+.signatureDishes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+/* Recipe Page Layout */
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 2rem auto;
+}
+
+/* Uniform Recipe Boxes */
+.recipes .recipe {
+  width: 100%;
+  margin: 0 0 1.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+/* Recipe Box Content */
+.recipes .recipe h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.recipes .recipe p,
+.recipes .recipe li {
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+/* Recipe Summary Layout: Images & Details Side by Side */
+.recipe-summary {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.recipeImage {
+  flex: 0 0 40%;
+}
+
+.recipe-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recipe-details > div {
+  margin-bottom: 0.5rem;
+}
+
+/* Recipe Image Styling */
+.recipeImage img {
+  display: block;
+  width: 70%;
+  height: auto;
+  margin: 0 auto 3rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 8px;
+}
+
+/* Layout for Ingredients, Equipment, and Instructions */
+.details-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+.details-layout > div {
+  flex: 1;
+  min-width: 250px;
+  overflow-wrap: break-word;
+}
+.details-layout .ingredient-list,
+.details-layout .equipment {
+  gap: 1.5rem;
+  flex-direction: column;
+}
+.details-layout .instructions {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* Signature Dishes Hyperlink Styling */
+.signatureDish a {
+  text-decoration: none;
+  color: inherit;
+}
+.signatureDish a:hover {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+/* Home Page Dish Images */
+.cuisineOriginImage img,
+.signatureDishImage img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+}
+
+/* Booking Form Section */
+#prvtLesson {
+  margin: 2rem auto;
+  width: 90%;
+}
+#prvtLesson h2,
+#prvtLesson p {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+#prvtLesson form {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+#prvtLesson form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+#prvtLesson label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-secondary);
+}
+#prvtLesson input,
+#prvtLesson select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: var(--font-primary);
+}
+#prvtLesson input[type="submit"] {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  transition: background-color 0.3s ease;
+}
+#prvtLesson input[type="submit"]:hover {
+  background-color: #c0392b;
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem;
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.footer-section {
+  flex: 1 1 30%;
+  text-align: left;
+}
+
+/* Footer Image Styling */
+.footer-section img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+/* Quick Links Section Styling*/
+.footer-section.links {
+  margin-left: auto;
+  text-align: center;
+}
+
+.footer-section h2 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem; 
+  color: #ffffff;
+}
+.footer-section ul {
+  list-style: none;
+}
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Links Styling */
+footer a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+footer a:hover {
+  color: #ffffff;
+  border-bottom: 1px solid var(--color-accent);
+}
+.footer-bottom {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+.accent {
+  color: var(--color-accent);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  :root {
+    --base-font-size: 16px;
+  }
+  .container, section {
+    width: 95%;
+  }
+  .navbar {
+    padding: 0.5rem;
+  }
+  .navbar a {
+    font-size: 1rem;
+    margin: 0 0.2rem;
+  }
+  /* Stacks the recipe summary and details layout vertically */
+  .recipe-summary, .details-layout {
+    flex-direction: column;
+  }
+  .recipeImage, .recipe-details, .details-layout > div {
+    flex: 1 0 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --base-font-size: 14px;
+  }
+  .navbar a {
+    font-size: 0.9rem;
+    margin: 0 0.1rem;
+  }
+}
